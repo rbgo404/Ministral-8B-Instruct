@@ -20,23 +20,10 @@ class InferlessPythonModel:
         sampling_params = SamplingParams(temperature=temperature,top_p=top_p,repetition_penalty=repetition_penalty,
                                          top_k=top_k,max_tokens=max_tokens)
         input_text = self.tokenizer.apply_chat_template([{"role": "user", "content": prompts}], tokenize=False)
-#         result = self.llm.generate(input_text, sampling_params)
-#         result_output = [output.outputs[0].text for output in result]
-
         result = self.llm.generate(input_text, sampling_params)
-        request_time = time.perf_counter() - start_time
-        result_output = [[output.outputs[0].text,output.outputs[0].token_ids] for output in result]
+        result_output = [output.outputs[0].text for output in result]
 
-        request_time = time.perf_counter() - start_time
-
-        return {'tok_count': len(result_output[0][1]),
-            'time': request_time,
-#             'question': prompt,
-            'answer': result_output[0][0],
-            
-        }
-
-#         return {'result': result}
+        return {'result': result_output[0]}
 
     def finalize(self):
         self.llm = None
