@@ -3,7 +3,7 @@
 
 ## TL;DR:
 - Deployment of Ministral-8B-Instruct model using [vllm](https://github.com/vllm-project/vllm).
-- You can expect an average tokens/sec of `74.79` and a latency of `3.43 sec` for generating a text of `256` tokens. This setup has an average cold start time of `15.44 sec`.
+- You can expect an average tokens/sec of `78.27` and a latency of `3.05 sec` for generating a text of `256` tokens. This setup has an average cold start time of `15.44 sec`.
 - Dependencies defined in `inferless-runtime-config.yaml`.
 - GitHub/GitLab template creation with `app.py`, `inferless-runtime-config.yaml` and `inferless.yaml`.
 - Model class in `app.py` with `initialize`, `infer`, and `finalize` functions.
