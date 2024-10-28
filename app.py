@@ -9,7 +9,6 @@ class InferlessPythonModel:
         self.tokenizer = AutoTokenizer.from_pretrained(model_id)
 
     def infer(self, inputs):
-        start_time = time.perf_counter()
         prompts = inputs["prompt"]
         temperature = inputs.get("temperature",0.7)
         top_p = inputs.get("top_p",0.1)
